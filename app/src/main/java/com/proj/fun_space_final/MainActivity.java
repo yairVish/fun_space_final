@@ -9,6 +9,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
@@ -19,6 +20,9 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     private boolean b_flie=false;
     private boolean se=true;
+    public static int screenWidth = 0;
+    public static int screenHeight = 0;
+
     RelativeLayout layout_joystick,mainLayout,backgroundJoystick;
     ImageView image_joystick, image_border;
     private Bitmap bitmapPlayer;
@@ -29,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
     private Bitmap []bitmapAsteroids = new Bitmap[18];
     private Bitmap []bitmapExplosions = new Bitmap[5];
 
-    private int maxWidth,maxHeight;
     private TextView textView1;
     private TextView textView2;
     private TextView textView3;
@@ -47,8 +50,6 @@ public class MainActivity extends AppCompatActivity {
     boolean b23=true;
     public static boolean b1=false;
     public static final String TAG="Main";
-    public int screenWidth= Resources.getSystem().getDisplayMetrics().widthPixels;
-    public int screenHeight=Resources.getSystem().getDisplayMetrics().heightPixels;
     private GameView gameView;
     private EnemyAstroid enemyAstroid;
     private StarMove starMove;
@@ -59,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        screenWidth = checkMaxWidth();
+        screenHeight = checkMaxHeight();
         bitmapPlayer=BitmapFactory.decodeResource(getResources(),R.drawable.player);
         bitmaPlayerNoFire = BitmapFactory.decodeResource(getResources(),R.drawable.player_no_fire);
         bitmapStar = BitmapFactory.decodeResource(getResources(),R.drawable.star);
@@ -87,8 +90,6 @@ public class MainActivity extends AppCompatActivity {
         backgroundJoystick.setLayoutParams(params_jos);
         backgroundJoystick.setBackground(layout_joystick.getBackground());
         backgroundJoystick.setBackgroundResource(R.drawable.joistick_layout);
-        maxWidth = checkMaxWidth();
-        maxHeight = checkMaxHeight();
         defineGame();
         mainLayout.addView(gameView);
         mainLayout.addView(backgroundJoystick);
@@ -104,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
                 public boolean onTouch(View arg0, MotionEvent arg1) {
                     if (gameView.isLose()) {
                         gameView.setB_file(true);
+                        Log.d(TAG, "screenWidth *: "+screenWidth);
                         backgroundJoystick.setX(screenWidth * 5 / 100);
                         button.setX(screenWidth * 85 / 100);
                         starMove.define();

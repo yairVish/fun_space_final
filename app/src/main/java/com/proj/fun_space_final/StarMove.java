@@ -3,6 +3,7 @@ package com.proj.fun_space_final;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import static com.proj.fun_space_final.MainActivity.*;
 
 public class StarMove {
     private int rscore = 0;
@@ -10,7 +11,6 @@ public class StarMove {
     private final int SIZE=20;
     private int update_y=6;
     private Bitmap image;
-    private int screenHeight=Resources.getSystem().getDisplayMetrics().heightPixels;
     private int count=0;
     public StarMove(Bitmap image){
         x=new int[SIZE];

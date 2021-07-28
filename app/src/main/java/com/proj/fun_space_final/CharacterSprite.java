@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.util.Log;
 
 import static android.content.ContentValues.TAG;
+import static com.proj.fun_space_final.MainActivity.*;
 
 public class CharacterSprite {
     private Bitmap image;
@@ -14,8 +15,6 @@ public class CharacterSprite {
     private Bitmap bitmaPlayerNoFire,bitmapPlayer;
     private float x,y;
     private float x1,y1;
-    private int screenWidth= Resources.getSystem().getDisplayMetrics().widthPixels;
-    private int screenHeight=Resources.getSystem().getDisplayMetrics().heightPixels;
 
     public CharacterSprite(Bitmap bitmaPlayerNoFire, Bitmap bitmapPlayer, boolean b) {
         image=bitmapPlayer;

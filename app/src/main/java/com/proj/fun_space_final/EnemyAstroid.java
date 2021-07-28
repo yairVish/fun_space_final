@@ -4,6 +4,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.util.Log;
+import static com.proj.fun_space_final.MainActivity.*;
 
 public class EnemyAstroid {
     private final int SIZE = 24;
@@ -11,8 +12,6 @@ public class EnemyAstroid {
     private boolean[] aBoolean;
     private boolean[] aBoolean2;
     private boolean[] aBoolean3;
-    private int screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
-    private int screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
     private int[] x, y, r_x, r_y, j;
     private int update_y=3;
     private int rscore = 0;

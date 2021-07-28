@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+import static com.proj.fun_space_final.MainActivity.*;
 
 import androidx.annotation.NonNull;
 
@@ -53,8 +54,6 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     private BufferedReader reader=null;
     private boolean isLegal=false;
     private Dt dt=new Dt();
-    private int screenWidth= Resources.getSystem().getDisplayMetrics().widthPixels;
-    private int screenHeight=Resources.getSystem().getDisplayMetrics().heightPixels;
     public GameView(Context context, ViewGroup layout, ImageView button, EnemyAstroid enemyAstroid, StarMove starMove
             , Shoot shoot, CharacterSprite characterSprite, Gitch gitch){
         super(context);
@@ -69,6 +68,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         this.gitch=gitch;
         lose=true;
         lose2=true;
+        Log.d("TAG", "Width: "+screenWidth);
     }
     public void startGameView(){
         dt.start();
@@ -133,7 +133,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
     @Override
     public void surfaceChanged(@NonNull SurfaceHolder holder, int format, int width, int height) {
-
+        Log.d("TAG", "surfaceChanged: format: "+format+"width :"+width+"height: "+height);
     }
 
     @Override

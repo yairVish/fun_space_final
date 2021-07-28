@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import static com.proj.fun_space_final.MainActivity.*;
 
 public class Shoot {
     private final int SIZE=10;
@@ -16,8 +17,6 @@ public class Shoot {
     private ImageView button;
     private int countShoots=0,countShoots2=0;
     private int z=0;
-    private int screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
-    private int screenHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
 
     public Shoot(Bitmap image, ImageView button){
         back=new boolean[SIZE];
